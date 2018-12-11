@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.bandq.spring.Entities.PaymentDetails" table="payment details">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="increment" />
+        </id>
+        <property name="cardNumber" type="java.lang.Integer">
+            <column name="CardNumber" />
+        </property>
+        <property name="expiryDate" type="java.lang.Integer">
+            <column name="ExpiryDate" />
+        </property>
+        <property name="nameOnCard" type="java.lang.String">
+            <column name="NameOnCard" />
+        </property>
+    </class>
+</hibernate-mapping>

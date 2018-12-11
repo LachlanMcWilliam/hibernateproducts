@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.bandq.spring.Entities.Order" table="order">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="increment" />
+        </id>
+        <property name="addressId" type="java.lang.Integer">
+            <column name="AddressId" />
+        </property>
+        <property name="paymentId" type="java.lang.Integer">
+            <column name="PaymentId" />
+        </property>
+        <property name="customerId" type="java.lang.Integer">
+            <column name="CustomerId" />
+        </property>
+        <property name="numOfProducts" type="java.lang.Integer">
+            <column name="NumberOfProducts" />
+        </property>
+        <property name="beenOrdered" type="java.lang.Boolean">
+            <column name="HasBeenOrdered" />
+        </property>
+    </class>
+</hibernate-mapping>
