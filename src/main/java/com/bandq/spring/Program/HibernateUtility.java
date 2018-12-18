@@ -2,7 +2,7 @@ package com.bandq.spring.Program;
 
 import java.util.Properties;
 
-import com.bandq.spring.Entities.Employee;
+import com.bandq.spring.Entities.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -80,6 +80,20 @@ public class HibernateUtility {
             //addClass(Employee1.class) will look for resource
             // com/journaldev/hibernate/model/Employee1.hbm.xml (not good)
             configuration.addAnnotatedClass(Employee.class);
+            configuration.addAnnotatedClass(Product.class);
+            configuration.addAnnotatedClass(PaymentDetails.class);
+            configuration.addAnnotatedClass(Order.class);
+            configuration.addAnnotatedClass(Customer.class);
+            configuration.addAnnotatedClass(Category.class);
+            configuration.addAnnotatedClass(Address.class);
+
+            configuration.addResource("product.hbm.xml");
+            configuration.addResource("employee.hbm.xml");
+            configuration.addResource("paymentMethod.hbm.xml");
+            configuration.addResource("order.hbm.xml");
+            configuration.addResource("customer.hbm.xml");
+            configuration.addResource("category.hbm.xml");
+            configuration.addResource("address.hbm.xml");
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             System.out.println("Hibernate Java Config serviceRegistry created");
@@ -95,7 +109,7 @@ public class HibernateUtility {
     }
 
     public static SessionFactory getSessionFactory() {
-        if(sessionFactory == null) sessionFactory = buildSessionFactory();
+        if(sessionFactory == null) sessionFactory = buildSessionJavaConfigFactory();//buildSessionFactory();
         return sessionFactory;
     }
 

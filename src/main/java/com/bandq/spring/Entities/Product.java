@@ -1,5 +1,6 @@
 package com.bandq.spring.Entities;
 
+
 import javax.persistence.*;
 
 @Entity
